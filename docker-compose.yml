@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  document-service:
+    container_name: document_service_app
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - ./storage:/app/storage
+      - ./sql_app.db:/app/sql_app.db
+    environment:
+      - PYTHONUNBUFFERED=1
